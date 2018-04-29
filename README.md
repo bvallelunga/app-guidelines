@@ -31,8 +31,7 @@ All apps will be running on a [Python3](https://docs.python.org/3/) enviroment. 
   
 # Tips and Tricks
 
-**Importing Code**
-
+### Importing Code
 Importing local files in Python3 can be pretty tricky so we recommend appending your entry point's current path.
 
 ``` py
@@ -45,8 +44,7 @@ from encoder import Model
 from utils import load_model_params
 ```
 
-**Importing Binary Files**
-
+### Importing Binary Files
 We recommend using the full path when importing binary files.
 
 ```
