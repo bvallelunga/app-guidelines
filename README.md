@@ -1,11 +1,11 @@
 # App Guidelines
 
-This document is to help maintainers navigate the nuances of the Doppler marketplace. It will include tips to make sure imports work, hard dependencies, and restrictions placed by Doppler.
+This document is meant to help maintainers prepare their apps for the Doppler marketplace. It includes importing guidelines as well as a list of hard dependencies and app restrictions.
 
 
 # Enviroment
 
-All apps will be running on a [Python3](https://docs.python.org/3/) enviroment. These packages will be installed by defaults:
+All apps will be running in a [Python3](https://docs.python.org/3/) environment. The following packages will be installed by default:  - "requests",
   - "requests",
   - "cement",
   - "colorlog",
@@ -32,8 +32,9 @@ All apps will be running on a [Python3](https://docs.python.org/3/) enviroment. 
 # Tips and Tricks
 
 ### Importing Code
-Importing local files in Python3 can be pretty tricky so we recommend appending your entry point's current path.
-
+In order for relative imports to work properly, you must:
+  1. add all files, with relative imports, to the `PYTHON PATH`
+  2. remove explicit relative imports
 ``` py
 # Add Current Directory to Path
 import sys, os
@@ -48,6 +49,7 @@ from utils import load_model_params
 We recommend using the full path when importing binary files.
 
 ```
-MODEL_PARAMS_PATH = '{}/model'.format(os.path.dirname(os.path.realpath(__file__)))
+BASE_PATH = os.path.dirname(os.path.abspath(__file__))
+MODEL_PARAMS_PATH = os.join.path(BASE_PATH, 'model')
 ```
   
